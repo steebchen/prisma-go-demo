@@ -3,13 +3,13 @@ datasource db {
   provider = "sqlite"
   url      = "file:dev.db"
 }
- 
+
 generator db {
   provider = "go run github.com/steebchen/prisma-client-go"
 }
- 
+
 model Post {
-  id        String   @default(cuid()) @id
+  id        String   @id @default(cuid())
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
   title     String
